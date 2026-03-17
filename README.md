@@ -1,10 +1,9 @@
-# nome-generico
+# game-box
 
 ### **Autor:** Leonardo Antunes Domingues da Silva
 
-Este projeto tem como objetivo implementar progressivamente e de forma didática uma aplicação web inspirada em operações comuns de instituições financeiras (ex: saque, depósito, extrato, saldo, cadastro), sendo o diferencial, a cobrança de taxas de forma abusiva para cada operação realizada pelo cliente.
+Este projeto tem como objetivo criar um ambiente onde os usuarios podem compartilhar as suas jogatinas ao zerar o jogo e junto disso produzir uma review sobre o que achou do jogo e podendo comentar sobre os pontos neativos e positivos. Tendo ainda uma seção reservada a comentarios e discussões sobre a review.
 
-O frontend da aplicação foi desenvolvido com HTML, CSS e JavaScript e o backend foi simulado pela implementação de uma API Fake, usando o JSON Server.
 
 ## 📚 Documentação do Projeto
 
@@ -24,10 +23,10 @@ https://
 
 ## 💻 Tecnologias e Dependências
 
-- **Framework CSS:** MaterializeCSS
+- **Framework CSS:** 
 - **JavaScript:**
-  - **JQuery** - Para realizar animações e manipulação do DOM.
-  - **JSON Server** - Para simular uma API REST.
+  - **JQuery** - 
+  - **JSON Server** - 
 
 ## ✅ Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
