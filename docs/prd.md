@@ -19,7 +19,7 @@ Abaixo estão as funcionalidades principais do MVP (Minimum Viable Product), esc
 ### 👤 Épico 1: Criação de conta e login
 
 - **US01 - Abertura de Conta:** Como um Visitante, para criar a conta será necessario a criação de um nome de usuario, um email valido e a criação de uma senha.
-  - _Critérios de Aceitação:_ O nome de usuario deve ser unico; todos os campos são obrigatórios; o email deve ser válidp.
+  - _Critérios de Aceitação:_ O nome de usuario deve ser unico; todos os campos são obrigatórios; o email deve ser válido.
 - **US02 - Acesso ao Sistema (Login):** Como um Reviwer, para acessar é necessário usar o email ou o nome de usario e utilazar a sua senha.
 - **US03 - Personalização de Perfil:** Após realizar o login e ao entrar na aplicação, ha a possibilidade de entrar no seu perfil e personalizalo da maneira que deseja, podendo mudar a foto de perfil e colocar detalhes sobre vocẽ, como suas redes socias.**(ideia pode ser alterada/removida no futuro)**
 
