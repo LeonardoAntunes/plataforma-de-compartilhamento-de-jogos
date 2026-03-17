@@ -2,7 +2,7 @@
 
 ### **Autor:** Leonardo Antunes Domingues da Silva
 
-Este projeto tem como objetivo criar um ambiente onde os usuarios podem compartilhar as suas jogatinas ao zerar o jogo e junto disso produzir uma review sobre o que achou do jogo e podendo comentar sobre os pontos neativos e positivos. Tendo ainda uma seção reservada a comentarios e discussões sobre a review.
+Este projeto tem como objetivo criar um ambiente onde os usuarios podem compartilhar e como eslas estão senod incaminhadas, com a possiblidade de comentarem sobre as suas jogatinas ao zerar o jogo e junto disso produzir uma review sobre o que achou do jogo e podendo comentar sobre os pontos neativos e positivos. Tendo ainda uma seção reservada a comentarios e discussões sobre a review.
 
 
 ## 📚 Documentação do Projeto
