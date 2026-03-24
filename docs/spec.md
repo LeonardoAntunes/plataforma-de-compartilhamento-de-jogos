@@ -8,81 +8,122 @@ Abaixo está o Diagrama Entidade-Relacionamento (DER) que representa a estrutura
 
 ```mermaid
 erDiagram
-USUARIO ||--o{ TRANSACAO : "realiza (e paga taxa)"
-USUARIO {
-string nome "nome de usuario"
-string email "Usado para o login"
-string senha
-}
-Personalização {
-string id PK
-string clienteId FK "Vínculo com o Cliente"
-string tipo "DEPOSITO, SAQUE ou TAXA"
-float valor
-string data "Formato ISO (YYYY-MM-DD)"
-string descricao "Ex: 'Taxa de manutenção respiratória'"
-}
-```
+    USUARIO ||--o{ JOGO : registra
+    USUARIO ||--o{ REVIEW : escreve
+    USUARIO ||--o{ COMENTARIO : faz
+    USUARIO ||--o{ AMIZADE : cria
+    REVIEW ||--o{ COMENTARIO : contem
+    JOGO ||--o{ REVIEW : recebe
+    USUARIO ||--o{ PERFIL : possui
+    USUARIO ||--o{ FOTO_PERFIL : tem
+    USUARIO ||--o{ REDE_SOCIAL : conecta
+    JOGO ||--o{ GENERO : pertence
+    REVIEW ||--o{ NOTA : tem
+    COMENTARIO ||--o{ RESPOSTA : gera
 
-## 2. Dicionário de Dados
+    USUARIO {
+        int usuarioId PK
+        string nomeUsuario UK
+        string email UK
+        string senha
+        datetime dataCriacao
+        datetime dataUltimaAtualizacao
+        boolean ativo
+        string tipoUsuario "admin ou jogador"
+    }
 
-Breve explicação das tabelas principais:
+    PERFIL {
+        int perfilId PK
+        int usuarioId FK
+        string biografia
+        string localizacao
+        datetime dataAtualizacao
+    }
 
-- **Clientes:** Responsável por armazenar os dados de autenticação e o saldo consolidado do usuário.
-  - id: Identificador único gerado pelo JSON Server (String ou Hash).
-  - cpf: Chave de acesso do usuário. Em um cenário real seria único, mas para o MVP não há trava estrita no banco, apenas validação no front-end.
-  - saldo: Valor numérico (Float) que representa o dinheiro disponível. Pode ficar negativo devido à cobrança implacável de taxas do banco.
-- **Transações:** Registra o histórico financeiro. Regra de Negócio Crítica: Toda transação de SAQUE ou DEPOSITO feita pelo cliente deve gerar, via JavaScript, uma transação secundária automática do tipo TAXA, subtraindo um valor do saldo do cliente.
-  - clienteId: Chave estrangeira que vincula a transação ao cliente (padrão de nomenclatura exigido pelo JSON Server para rotas aninhadas).
-  - tipo: Aceita apenas os valores "SAQUE", "DEPOSITO" ou "TAXA".
-  - valor: Sempre um número positivo. O front-end decide se soma ou subtrai do saldo geral baseado no tipo.
+    FOTO_PERFIL {
+        int fotoId PK
+        int usuarioId FK
+        string caminhoFoto
+        datetime dataUpload
+    }
 
-## 3. Rotas da API (JSON Server)
+    REDE_SOCIAL {
+        int redeSocialId PK
+        int usuarioId FK
+        string plataforma
+        string url
+        datetime dataConexao
+    }
 
-A aplicação consome a API local simulada pelo JSON Server. Abaixo os principais endpoints:
+    JOGO {
+        int jogoId PK
+        string titulo UK
+        string descricao
+        string desenvolvedora
+        datetime dataLancamento
+        string plataforma
+    }
 
-- `GET /usuarios` - Retorna a lista de usuários.
-- `POST /usuarios` - Cadastra um novo usuário.
-- `GET /transacoes?id_usuario=1` - Retorna o extrato de um usuário específico.
+    GENERO {
+        int generoId PK
+        string nomeGenero UK
+    }
 
-## 4. Estrutura do Banco de Dados (db.json)
+    USUARIO_JOGO {
+        int usuarioJogoId PK
+        int usuarioId FK
+        int jogoId FK
+        string status "em progresso, finalizado, parado"
+        float progressoPercentual
+        datetime dataInicio
+        datetime dataFinalizacao
+    }
 
-Esta é a representação em formato JSON do banco de dados simulado. Esta estrutura serve de contexto para ferramentas de IA e para o JSON Server inicializar a API Fake.
+    REVIEW {
+        int reviewId PK
+        int usuarioId FK
+        int jogoId FK
+        string titulo
+        string conteudo
+        float nota "1 a 5"
+        int pontosPozitivos
+        int pontosNegativos
+        datetime dataCriacao
+        datetime dataUltimaEdicao
+        boolean deletada
+    }
 
-```JSON
-{
-    "clientes": [
-    {
-        "id": "1",
-        "nome": "João da Silva",
-        "cpf": "12345678900",
-        "senha": "senha_super_segura",
-        "saldo": 850.50
-    }],
-    "transacoes": [
-    {
-        "id": "1",
-        "clienteId": "1",
-        "tipo": "DEPOSITO",
-        "valor": 1000.00,
-        "data": "2026-03-16",
-        "descricao": "Depósito inicial em espécie"
-    },
-    {
-        "id": "2",
-        "clienteId": "1",
-        "tipo": "TAXA",
-        "valor": 50.00,
-        "data": "2026-03-16",
-        "descricao": "Taxa de boas-vindas do Roubank"
-    },
-    {
-        "id": "3",
-        "clienteId": "1",
-        "tipo": "SAQUE",
-        "valor": 99.50,
-        "data": "2026-03-17",
-        "descricao": "Saque no caixa eletrônico"
-    }]
-}
-```
+    NOTA {
+        int notaId PK
+        int reviewId FK
+        float valor
+    }
+
+    COMENTARIO {
+        int comentarioId PK
+        int usuarioId FK
+        int reviewId FK
+        string conteudo
+        datetime dataCriacao
+        datetime dataUltimaEdicao
+        boolean deletado
+    }
+
+    RESPOSTA {
+        int respostaId PK
+        int comentarioId FK
+        int usuarioId FK
+        string conteudo
+        datetime dataCriacao
+        datetime dataUltimaEdicao
+        boolean deletada
+    }
+
+    AMIZADE {
+        int amizadeId PK
+        int usuarioId1 FK
+        int usuarioId2 FK
+        string status "pendente, aceita, recusada"
+        datetime dataSolicitacao
+        datetime dataAceitacao
+    }
