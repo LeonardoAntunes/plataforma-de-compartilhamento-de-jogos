@@ -8,20 +8,21 @@ Abaixo está o Diagrama Entidade-Relacionamento (DER) que representa a estrutura
 
 ```mermaid
 erDiagram
-    USER ||--o{ GAME : registers
+    USER ||--|| PROFILE : has
     USER ||--o{ REVIEW : writes
-    USER ||--o{ PROFILE : has
-    GAME ||--o{ REVIEW : "receives"
+    USER ||--o{ USER_GAME_STATUS : tracks
+    GAME ||--o{ REVIEW : receives
+    GAME ||--o{ USER_GAME_STATUS : has
     ADMIN ||--o{ REVIEW : moderates
-    ADMIN ||--o{ USER : manages
+    ADMIN ||--|| USER : is
 
     USER {
         int userId PK
-        string username UK "unique"
-        string email UK "unique, valid"
+        string username UK
+        string email UK
         string passwordHash
         datetime createdAt
-        string role "player, admin"
+        string role
     }
 
     PROFILE {
@@ -46,8 +47,8 @@ erDiagram
         int userId FK
         int gameId FK
         string content
-        decimal rating "1-10"
-        string status "published, flagged, removed"
+        decimal rating
+        string status
         datetime createdAt
         datetime updatedAt
     }
@@ -56,7 +57,7 @@ erDiagram
         int statusId PK
         int userId FK
         int gameId FK
-        string status "playing completed abandoned"
+        string status
         datetime startDate
         datetime completionDate
     }
@@ -66,3 +67,4 @@ erDiagram
         int userId FK
         string permissions
         datetime assignedAt
+    }
