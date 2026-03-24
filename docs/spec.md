@@ -56,7 +56,7 @@ erDiagram
         int statusId PK
         int userId FK
         int gameId FK
-        string status
+        string status "playing completed abandoned"
         datetime startDate
         datetime completionDate
     }
