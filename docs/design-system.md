@@ -36,10 +36,11 @@ As variáveis de cor do framework foram escolhidas para induzir o usuário ao er
 
 Importada via Google Fonts para substituir a fonte padrão do navegador e dar um ar mais moderno:
 
--Títulos: Space Grotesk, 700, 24-32px
-Corpo: Outfit, 400, 16px
-Texto pequeno: Outfit, 400, 14px
-Estatísticas/Números: Chakra Petch, 600, 18px
+**Fonte Principal:** Inter (Sans-serif Geométrica)
+- **Display (Títulos Hero):** 48px / Bold / Espaçamento -0.025em
+- **Headline (Títulos de Seção):** 30px / Bold / Espaçamento -0.015em
+- **Body Regular (Corpo de Texto):** 16px / Regular / Altura da linha 1.625
+- **Metadata/Label (Legendas):** 12px / Medium / Espaçamento 0.2em (Caps)
 
 ### 4. Diretrizes de Uso de Componentes
 
