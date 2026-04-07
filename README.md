@@ -25,8 +25,7 @@ https://
 
 - **Framework CSS:** Materealize WEB
 - **JavaScript:**
-  - **JQuery** - 
-  - **JSON Server** - 
+  - **GameBrain API** - A biblioteca de jogos é importante para facilitar a catalogação dos jogos.
 
 ## ✅ Checklist | Indicadores de Desempenho (ID) dos Resultados de Aprendizagem (RA)
 
