@@ -23,7 +23,7 @@ https://
 
 ## 💻 Tecnologias e Dependências
 
-- **Framework CSS:** 
+- **Framework CSS:** Materealize WEB
 - **JavaScript:**
   - **JQuery** - 
   - **JSON Server** - 
