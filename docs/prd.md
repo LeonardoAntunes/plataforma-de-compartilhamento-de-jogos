@@ -4,8 +4,6 @@
 
 O **Gamebox** é uma aplicação web didática que visa criar um espaço onde você pode compartilhar a sua experiencia de suas jogatinas e deseja ao decorrer dos jogos mostrar as suas conquistas e fazer reviwes sobre os jogos qual completou.
 
-**O grande diferencial ():**
-
 ## 2. Atores do Sistema
 
 - **Visitante:** Usuário não autenticado que acessa a página inicial e deseja abrir uma conta.
